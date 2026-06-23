@@ -1,0 +1,5 @@
+{
+    # Override PyInstaller's built-in matplotlib runtime hook.
+    # See PEM/hook/rthooks/pem_rth_mplconfig.py for why.
+    'matplotlib': ['pem_rth_mplconfig.py'],
+}

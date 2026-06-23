@@ -1,0 +1,15 @@
+# isRunning()
+
+Report whether the timer is running.
+
+```python
+timer.isRunning()
+```
+
+## Returns
+
+`return isRunning`
+
+| Value | Type | Description |
+|---|---|---|
+| isRunning | `bool` | True if the timer has been started and not stopped, False otherwise. |

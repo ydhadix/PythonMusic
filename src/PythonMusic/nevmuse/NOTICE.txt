@@ -1,0 +1,17 @@
+nevmuse
+=======
+
+nevmuse is a distinct software component bundled with PythonMusic. It implements
+the Zipf-based music-information-retrieval metrics used by PythonMusic's `zipf`
+library (see src/zipf.py).
+
+nevmuse was developed by the music / computer-science research lab of
+Dr. Bill Manaris at the College of Charleston. Contributors named in the source
+headers include:
+
+   Bill Manaris, Tim Hirzel, Patrick Roos, John Emerson, Hector Mojica,
+   Luca Pellicoro, Brian Muller, Brys Sepulveda, David Johnson, Brian Murtagh.
+
+nevmuse is maintained and licensed SEPARATELY from PythonMusic. It is NOT covered
+by PythonMusic's GNU General Public License v3. Its specific license terms are to
+be confirmed with the authors prior to distribution.

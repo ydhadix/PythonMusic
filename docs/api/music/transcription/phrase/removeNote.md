@@ -1,0 +1,25 @@
+# removeNote()
+
+Remove the note at a given position from the phrase.
+
+```python
+phrase.removeNote(index)
+```
+
+## Parameters
+
+```python
+phrase.removeNote(index)
+```
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `index` | `int` | _required_ | The note's position, where 0 is the first note. |
+
+## Returns
+
+`return removedNote`
+
+| Value | Type | Description |
+|---|---|---|
+| removedNote | `Note` | The note that was removed. |

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PythonMusic"
+version = "1.0"
+description = "A Python-based software environment for developing algorithmic art projects."
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "LICENSE-PSF"]
+authors = [
+	{ name = "Dr. Bill Manaris", email = "manaris@cofc.edu" },
+	{ name = "Taj Ballinger", email = "ballingertj@g.cofc.edu" },
+	{ name = "Trevor Ritchie", email = "ritchiets@g.cofc.edu" },
+]
+keywords = ["music", "audio", "midi", "learning", "algorithmic art", "algoart"]
+requires-python = ">=3.12"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"Operating System :: OS Independent",
+]
+dependencies = [
+   "setuptools>=69.0",
+   "wheel>=0.46.0",
+   "tinysoundfont>=0.3.6",
+   "osc4py3>=1.0.8",
+   "mido>=1.3.3",
+   "PySide6>=6.9.1",
+   "python-rtmidi>=1.5.8",
+   "sounddevice>=0.5.2",
+   "soundfile>=0.13.1",
+   "tqdm>=4.67.1",
+   "pooch>=1.8",
+   "pypianoroll>=1.0",
+   "verovio>=5.6.0",
+   "pymusicxml>=0.5.6",
+   "pyinstaller>=6.16.0",
+   "pyobjc-framework-Cocoa>=9.0; sys_platform == 'darwin'"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["gui", "image", "midi", "music", "osc", "timer", "iannix", "markov", "zipf", "utilities"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"PythonMusic" = ["bin/libportaudio.2.dylib", "nevmuse/NOTICE.txt"]
+# pem ships non-Python assets (icons, configs) loaded from disk relative to the
+# package, so they must land alongside the modules in site-packages.
+"pem" = ["**/*.png", "**/*.gif", "**/*.ico", "**/*.icns", "**/*.def", "**/*.txt"]
+
+[project.scripts]
+pem = "pem.__main__:main"
+
+[project.urls]
+Homepage = "https://pythonmusic.org"
+Documentation = "https://pythonmusic.org"

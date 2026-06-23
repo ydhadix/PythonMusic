@@ -1,0 +1,5 @@
+PythonMusic and PEM are free software.  Both are distributed under the [GNU General Public License, version 3 or later](http://www.gnu.org/licenses/gpl-3.0.html), and derive from JythonMusic, which is also distributed under the GPL.
+
+PythonMusic's development was supported in part by the [United States National Science Foundation](http://www.nsf.gov/).
+
+[PythonMusic on GitHub](https://github.com/ydhadix/pythonmusic)
