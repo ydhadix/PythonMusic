@@ -2,6 +2,10 @@
 
 Return the font's point size.
 
+## Parameters
+
+Once an object `font` has been created, you can use the following function:
+
 ```python
 font.getSize()
 ```

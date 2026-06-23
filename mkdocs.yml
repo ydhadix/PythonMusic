@@ -150,6 +150,7 @@ nav:
         - Font:            api/gui/text/font/index.md
 
       - Icon:              api/gui/icon/index.md
+      - Common Functions:  api/gui/common/index.md
       - "---": "sep:"
       - Group:             api/gui/group/index.md
       - Color:             api/gui/color/index.md

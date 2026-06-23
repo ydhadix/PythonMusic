@@ -41,90 +41,22 @@ For example,
 --8<-- "examples/_snippets/simpleFader.py"
 ```
 
-Once created, you can add it to a [Display](../../display/index.md) using the Display's [add()](../../display/add.md) function.
+Once created, you can add it to a [Display](../../display/index.md) using the Display's [add()](../../common/collection/add.md) function.
 
 ## Functions
 
-Once a VFader `vfader` has been created, the following functions are available:
+Once a VFader has been created, the following functions are available:
+
+- [Position](../../common/index.md#position-functions)
+- [Size](../../common/index.md#size-functions)
+- [Visibility](../../common/index.md#visibility-functions)
+- [Information](../../common/index.md#information-functions)
+- [Hit Testing](../../common/index.md#hit-testing-functions)
+- [Events](../../common/index.md#event-functions)
+
+Additionally, the following functions are available specially for VFaders:
 
 | Function | Description |
 |---|---|
-| [`vfader.setValue(newValue)`](setValue.md) | Set the object's value. |
-| [`vfader.getValue()`](getValue.md) | Return the object's current value. |
-
-### Position
-
-| Function | Description |
-|---|---|
-| [`vfader.getPosition()`](getPosition.md) | Return the object's position, the top-left corner of its bounding box. |
-| [`vfader.getX()`](getX.md) | Return the object's horizontal position. |
-| [`vfader.getY()`](getY.md) | Return the object's vertical position. |
-| [`vfader.getCenter()`](getCenter.md) | Return the object's center point. |
-| [`vfader.getCenterX()`](getCenterX.md) | Return the object's horizontal center. |
-| [`vfader.getCenterY()`](getCenterY.md) | Return the object's vertical center. |
-| [`vfader.setPosition(x, y)`](setPosition.md) | Move the object so the top-left corner of its bounding box sits at the given point. |
-| [`vfader.setX(x)`](setX.md) | Set the object's horizontal position. |
-| [`vfader.setY(y)`](setY.md) | Set the object's vertical position. |
-| [`vfader.setCenter(x, y)`](setCenter.md) | Move the object so its center sits at the given point. |
-| [`vfader.setCenterX(x)`](setCenterX.md) | Set the object's horizontal center. |
-| [`vfader.setCenterY(y)`](setCenterY.md) | Set the object's vertical center. |
-| [`vfader.move(x, y)`](move.md) | Move the object to a new position. |
-
-### Size
-
-| Function | Description |
-|---|---|
-| [`vfader.getSize()`](getSize.md) | Return the object's width and height. |
-| [`vfader.getWidth()`](getWidth.md) | Return the object's width. |
-| [`vfader.getHeight()`](getHeight.md) | Return the object's height. |
-| [`vfader.setSize(width, height)`](setSize.md) | Set the object's width and height. |
-| [`vfader.setWidth(width)`](setWidth.md) | Set the object's width. |
-| [`vfader.setHeight(height)`](setHeight.md) | Set the object's height. |
-
-### Rotation
-
-| Function | Description |
-|---|---|
-| [`vfader.getRotation()`](getRotation.md) | Return how far the object is turned. |
-| [`vfader.setRotation(rotation)`](setRotation.md) | Turn the object to a given angle. |
-| [`vfader.rotate(angle)`](rotate.md) | Turn the object by an additional angle. |
-
-### Visibility
-
-| Function | Description |
-|---|---|
-| [`vfader.getVisibility()`](getVisibility.md) | Return how visible the object is. |
-| [`vfader.setVisibility(visibility)`](setVisibility.md) | Set how visible the object is. |
-
-### Information
-
-| Function | Description |
-|---|---|
-| [`vfader.getEndpoints()`](getEndpoints.md) | Return the object's four corners. |
-| [`vfader.getBoundingBox()`](getBoundingBox.md) | Return the smallest upright box that surrounds the object. |
-| [`vfader.getGroup()`](getGroup.md) | Return the Group this object belongs to. |
-| [`vfader.getDisplay()`](getDisplay.md) | Return the Display this object is on. |
-| [`vfader.setToolTipText()`](setToolTipText.md) | Set the hover text shown over the object. |
-
-### Hit Testing
-
-| Function | Description |
-|---|---|
-| [`vfader.contains(x, y)`](contains.md) | Report whether a point lies inside the object. |
-| [`vfader.intersects(other)`](intersects.md) | Report whether this object overlaps another. |
-| [`vfader.encloses(other)`](encloses.md) | Report whether this object completely contains another. |
-
-### Events
-
-| Function | Description |
-|---|---|
-| [`vfader.onMouseClick(action)`](onMouseClick.md) | Set up a function to call when the mouse is clicked on this object. |
-| [`vfader.onMouseDown(action)`](onMouseDown.md) | Set up a function to call when the mouse vfader is pressed on this object. |
-| [`vfader.onMouseUp(action)`](onMouseUp.md) | Set up a function to call when the mouse vfader is released over this object. |
-| [`vfader.onMouseMove(action)`](onMouseMove.md) | Set up a function to call when the mouse moves over this object. |
-| [`vfader.onMouseDrag(action)`](onMouseDrag.md) | Set up a function to call when the mouse is dragged over this object. |
-| [`vfader.onMouseEnter(action)`](onMouseEnter.md) | Set up a function to call when the mouse moves onto this object. |
-| [`vfader.onMouseExit(action)`](onMouseExit.md) | Set up a function to call when the mouse moves off this object. |
-| [`vfader.onKeyType(action)`](onKeyType.md) | Set up a function to call when a key is typed (pressed and released). |
-| [`vfader.onKeyDown(action)`](onKeyDown.md) | Set up a function to call when a key is pressed down. |
-| [`vfader.onKeyUp(action)`](onKeyUp.md) | Set up a function to call when a key is released. |
+| [`setValue(newValue)`](setValue.md) | Set the fader's value. |
+| [`getValue()`](getValue.md) | Return the fader's current value. |

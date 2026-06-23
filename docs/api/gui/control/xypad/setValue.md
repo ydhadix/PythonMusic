@@ -2,13 +2,11 @@
 
 Set the tracker's position within the pad.
 
-```python
-xypad.setValue(x, y)
-```
-
 Positions outside the pad are clamped to its edges. Moves the tracker and calls the update function.
 
 ## Parameters
+
+Once an object `xypad` has been created, you can use the following function:
 
 ```python
 xypad.setValue(x, y)

@@ -1,6 +1,6 @@
 # Display
 
-A Display is the window your GUI objects appear in. Build a GUI by adding shapes, images, text, and controls to it with [add()](add.md). The window opens as soon as you create it. Inside the display the origin (0, 0) is the top-left corner; x increases to the right and y increases downward.
+A Display is the window your GUI objects appear in. Build a GUI by adding shapes, images, text, and controls to it with [add()](../common/collection/add.md). The window opens as soon as you create it. Inside the display the origin (0, 0) is the top-left corner; x increases to the right and y increases downward.
 
 A program may have several displays open. Displays may contain any number of GUI objects, but they cannot contain another display.
 
@@ -35,34 +35,14 @@ display = Display("Simple GUI", 120, 60)
 
 ## Functions
 
-Once a Display `display` has been created, the following functions are available:
+Once a Display has been created, the following functions are available:
 
-| Function | Description |
-|---|---|
-| [`display.add(item)`](add.md) | Add a GUI object to the display at the given position. |
-| [`display.remove(item)`](remove.md) | Remove a GUI object from the display. |
-| [`display.removeAll()`](removeAll.md) | Remove every GUI object from the display. |
-| [`display.move(item, x, y)`](move.md) | Move a GUI object to a new position on the display. |
-| [`display.getItems()`](getItems.md) | Return the GUI objects currently on the display. |
+- [Collection](../common/index.md#collection-functions)
+- [Position](../common/index.md#position-functions)
+- [Size](../common/index.md#size-functions)
+- [Events](../common/index.md#event-functions)
 
-### Layering GUI Objects
-
-GUI objects on a Display are layered.  Typically, the most recent object sits on top of the others (`order = 0`).  You can change the order 
-
-| Function | Description |
-|---|---|
-| [`display.addOrder(item)`](add.md) | Add a GUI object to the display at the given position and layer. |
-| [`display.getOrder(item)`](getOrder.md) | Return the layer a GUI object sits on. |
-| [`display.setOrder(item, order)`](setOrder.md) | Move a GUI object to a different layer. |
-
-### Adding Menus
-
-[Menu](../control/menu/index.md) objects are different from other objects; instead of appearing on a Display, menu objects are added to the Display's menu bar, or as context (right click, pop-up) menus.
-
-| Function | Description |
-|---|---|
-| [`display.addMenu(menu)`](addMenu.md) | Add a menu to the display's menu bar. |
-| [`display.addPopupMenu(menu)`](addPopupMenu.md) | Add a pop-up (right-click) menu to the display. |
+Additionally, the following functions are available specially for Displays:
 
 ### Manipulating the Display
 
@@ -70,25 +50,26 @@ These functions are useful for updating how a Display appears on the screen.
 
 | Function | Description |
 |---|---|
-| [`display.getTitle()`](getTitle.md) | Return the display's title. |
-| [`display.getSize()`](getSize.md) | Return the display's width and height. |
-| [`display.getWidth()`](getWidth.md) | Return the display's width. |
-| [`display.getHeight()`](getHeight.md) | Return the display's height. |
-| [`display.getPosition()`](getPosition.md) | Return the display's position on the screen. |
-| [`display.getColor()`](getColor.md) | Return the display's background color. |
-| [`display.setTitle(title)`](setTitle.md) | Set the display's title. |
-| [`display.setSize(width, height)`](setSize.md) | Set the display's width and height. |
-| [`display.setWidth(width)`](setWidth.md) | Set the display's width. |
-| [`display.setHeight(height)`](setHeight.md) | Set the display's height. |
-| [`display.setPosition(x, y)`](setPosition.md) | Set the display's position on the screen. |
-| [`display.setColor()`](setColor.md) | Set the display's background color. |
-| [`display.show()`](show.md) | Show the display. |
-| [`display.hide()`](hide.md) | Hide the display. |
-| [`display.close()`](close.md) | Close the display. |
-| [`display.save(filename)`](save.md) | Save a picture of the display to an image file. |
-| [`display.setToolTipText()`](setToolTipText.md) | Set the hover text shown over the display. |
-| [`display.showMouseCoordinates()`](showMouseCoordinates.md) | Show the mouse position in the display's tooltip as the mouse moves. |
-| [`display.hideMouseCoordinates()`](hideMouseCoordinates.md) | Stop showing the mouse position in the display's tooltip. |
+| [`getTitle()`](getTitle.md) | Return the display's title. |
+| [`setTitle(title)`](setTitle.md) | Set the display's title. |
+| [`getColor()`](getColor.md) | Return the display's background color. |
+| [`setColor()`](setColor.md) | Set the display's background color. |
+| [`show()`](show.md) | Show the display. |
+| [`hide()`](hide.md) | Hide the display. |
+| [`close()`](close.md) | Close the display. |
+| [`save(filename)`](save.md) | Save a picture of the display to an image file. |
+| [`setToolTipText()`](setToolTipText.md) | Set the hover text shown over the display. |
+| [`showMouseCoordinates()`](showMouseCoordinates.md) | Show the mouse position in the display's tooltip as the mouse moves. |
+| [`hideMouseCoordinates()`](hideMouseCoordinates.md) | Stop showing the mouse position in the display's tooltip. |
+
+### Adding Menus
+
+[Menu](../control/menu/index.md) objects are different from other GUI objects; instead of appearing on a Display, menu objects are added to the Display's menu bar, or as context (right click, pop-up) menus.
+
+| Function | Description |
+|---|---|
+| [`addMenu(menu)`](addMenu.md) | Add a menu to the display's menu bar. |
+| [`addPopupMenu(menu)`](addPopupMenu.md) | Add a pop-up (right-click) menu to the display. |
 
 ### Drawing Shapes
 
@@ -96,34 +77,16 @@ In addition to adding movable GUI objects to a Display, you can also draw shapes
 
 | Function | Description |
 |---|---|
-| [`display.drawRectangle(x1, y1, x2, y2)`](drawRectangle.md) | Draw a rectangle straight onto the display. |
-| [`display.drawOval(x1, y1, x2, y2)`](drawOval.md) | Draw an oval straight onto the display. |
-| [`display.drawCircle(x, y, radius)`](drawCircle.md) | Draw a circle straight onto the display. |
-| [`display.drawPoint(x, y)`](drawPoint.md) | Draw a single point straight onto the display. |
-| [`display.drawArc(x1, y1, x2, y2)`](drawArc.md) | Draw an arc straight onto the display. |
-| [`display.drawArcCircle(x, y, radius)`](drawArcCircle.md) | Draw a circular arc straight onto the display. |
-| [`display.drawPolyline(xPoints, yPoints)`](drawPolyline.md) | Draw a connected series of line segments straight onto the display. |
-| [`display.drawLine(x1, y1, x2, y2)`](drawLine.md) | Draw a line straight onto the display. |
-| [`display.drawPolygon(xPoints, yPoints)`](drawPolygon.md) | Draw a polygon straight onto the display. |
-| [`display.drawIcon(filename, x, y)`](drawIcon.md) | Draw an image straight onto the display. |
-| [`display.drawLabel(text, x, y)`](drawLabel.md) | Draw a line of text straight onto the display. |
-| [`display.drawText(text, x, y)`](drawText.md) | Draw a line of text straight onto the display. |
-| [`display.clearDrawing()`](clearDrawing.md) | Erase everything drawn with the draw… methods. |
-
-### Events
-
-Displays have the same [event functions](../event/index.md) as other GUI objects, plus their own [onClose()](onClose.md) event.
-
-| Function | Description |
-|---|---|
-| [`display.onClose(action)`](onClose.md) | Set up a function to call right before the display closes. |
-| [`display.onMouseClick(action)`](onMouseClick.md) | Set up a function to call when the mouse is clicked on this object. |
-| [`display.onMouseDown(action)`](onMouseDown.md) | Set up a function to call when the mouse button is pressed on this object. |
-| [`display.onMouseUp(action)`](onMouseUp.md) | Set up a function to call when the mouse button is released over this object. |
-| [`display.onMouseMove(action)`](onMouseMove.md) | Set up a function to call when the mouse moves over this object. |
-| [`display.onMouseDrag(action)`](onMouseDrag.md) | Set up a function to call when the mouse is dragged over this object. |
-| [`display.onMouseEnter(action)`](onMouseEnter.md) | Set up a function to call when the mouse moves onto this object. |
-| [`display.onMouseExit(action)`](onMouseExit.md) | Set up a function to call when the mouse moves off this object. |
-| [`display.onKeyType(action)`](onKeyType.md) | Set up a function to call when a key is typed (pressed and released). |
-| [`display.onKeyDown(action)`](onKeyDown.md) | Set up a function to call when a key is pressed down. |
-| [`display.onKeyUp(action)`](onKeyUp.md) | Set up a function to call when a key is released. |
+| [`drawRectangle(x1, y1, x2, y2)`](drawRectangle.md) | Draw a rectangle straight onto the display. |
+| [`drawOval(x1, y1, x2, y2)`](drawOval.md) | Draw an oval straight onto the display. |
+| [`drawCircle(x, y, radius)`](drawCircle.md) | Draw a circle straight onto the display. |
+| [`drawPoint(x, y)`](drawPoint.md) | Draw a single point straight onto the display. |
+| [`drawArc(x1, y1, x2, y2)`](drawArc.md) | Draw an arc straight onto the display. |
+| [`drawArcCircle(x, y, radius)`](drawArcCircle.md) | Draw a circular arc straight onto the display. |
+| [`drawPolyline(xPoints, yPoints)`](drawPolyline.md) | Draw a connected series of line segments straight onto the display. |
+| [`drawLine(x1, y1, x2, y2)`](drawLine.md) | Draw a line straight onto the display. |
+| [`drawPolygon(xPoints, yPoints)`](drawPolygon.md) | Draw a polygon straight onto the display. |
+| [`drawIcon(filename, x, y)`](drawIcon.md) | Draw an image straight onto the display. |
+| [`drawLabel(text, x, y)`](drawLabel.md) | Draw a line of text straight onto the display. |
+| [`drawText(text, x, y)`](drawText.md) | Draw a line of text straight onto the display. |
+| [`clearDrawing()`](clearDrawing.md) | Erase everything drawn with the draw functions. |

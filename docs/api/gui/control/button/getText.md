@@ -2,6 +2,10 @@
 
 Return the button's text.
 
+## Parameters
+
+Once an object `button` has been created, you can use the following function:
+
 ```python
 button.getText()
 ```

@@ -2,11 +2,9 @@
 
 Set the font's point size.
 
-```python
-font.setSize(size)
-```
-
 ## Parameters
+
+Once an object `font` has been created, you can use the following function:
 
 ```python
 font.setSize(size)

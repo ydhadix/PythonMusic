@@ -1,15 +1,17 @@
 # save()
 
-Save a picture of the display to an image file.
+Save a picture of the display to JPG or PNG image file.
+
+## Parameters
+
+Once an object `display` has been created, you can use the following functions:
 
 ```python
 display.save(filename)
 ```
 
-## Parameters
-
 ```python
-display.save(filename, width=None, height=None)
+display.save(filename, width, height)
 ```
 
 | Parameter | Type | Default | Description |

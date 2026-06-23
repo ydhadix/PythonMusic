@@ -2,11 +2,9 @@
 
 Set the font's name.
 
-```python
-font.setName(name)
-```
-
 ## Parameters
+
+Once an object `font` has been created, you can use the following function:
 
 ```python
 font.setName(name)

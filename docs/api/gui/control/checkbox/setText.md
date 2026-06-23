@@ -2,11 +2,9 @@
 
 Set the checkbox's text.
 
-```python
-checkbox.setText(text)
-```
-
 ## Parameters
+
+Once an object `checkbox` has been created, you can use the following function:
 
 ```python
 checkbox.setText(text)

@@ -2,6 +2,10 @@
 
 Return the font's style.
 
+## Parameters
+
+Once an object `font` has been created, you can use the following function:
+
 ```python
 font.getStyle()
 ```
@@ -12,4 +16,4 @@ font.getStyle()
 
 | Value | Type | Description |
 |---|---|---|
-| style | `tuple` | The text style, one of Font.PLAIN, Font.BOLD, Font.ITALIC, or Font.BOLDITALIC. |
+| style | `tuple` | The text style. |

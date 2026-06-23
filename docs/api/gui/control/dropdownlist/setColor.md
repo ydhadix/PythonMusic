@@ -2,14 +2,12 @@
 
 Set the drop-down list's color.
 
-```python
-dropdownlist.setColor(color)
-```
-
 ## Parameters
 
+Once an object `dropdown` has been created, you can use the following function:
+
 ```python
-dropdownlist.setColor(color)
+dropdown.setColor(color)
 ```
 
 | Parameter | Type | Default | Description |

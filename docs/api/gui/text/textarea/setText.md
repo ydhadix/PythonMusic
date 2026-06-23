@@ -2,11 +2,9 @@
 
 Set the text in the area.
 
-```python
-textarea.setText(text)
-```
-
 ## Parameters
+
+Once an object `textarea` has been created, you can use the following function:
 
 ```python
 textarea.setText(text)

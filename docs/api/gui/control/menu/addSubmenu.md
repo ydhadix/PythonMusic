@@ -1,14 +1,10 @@
 # addSubmenu()
 
-Add a submenu to the menu.
-
-```python
-menu.addSubmenu(menu)
-```
-
-Used to build nested, hierarchical menus.
+Add a submenu to the menu.  Used to build nested, hierarchical menus.
 
 ## Parameters
+
+Once an object `menu` has been created, you can use the following function:
 
 ```python
 menu.addSubmenu(menu)

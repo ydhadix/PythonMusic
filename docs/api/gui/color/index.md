@@ -13,7 +13,7 @@ Color.ORANGE, Color.PINK,   Color.PURPLE,     Color.RED,
 Color.WHITE,  Color.YELLOW, Color.CLEAR
 ```
 
-All [GUI Shapes](../shapes/index.md) and many other GUI objects use functions like [setColor()](../shapes/rectangle/setColor.md) and [getColor()](../shapes/rectangle/getColor.md) with Color objects.
+All [GUI Shapes](../shapes/index.md) and many other GUI objects use functions like [setColor()](../common/color/setColor.md) and [getColor()](../common/color/getColor.md) with Color objects.
 
 ## Creating a Color
 
@@ -47,22 +47,22 @@ color2 = Color(255, 255, 255, 150)   # same as Color.WHITE, but semi-transparent
 
 ## Functions
 
-Once a Color `color` has been created, the following functions are available:
+Once a Color has been created, the following functions are available:
 
 | Function | Description |
 |---|---|
-| [`color.getRed()`](getRed.md) | Return the red component of the color. |
-| [`color.getGreen()`](getGreen.md) | Return the green component of the color. |
-| [`color.getBlue()`](getBlue.md) | Return the blue component of the color. |
-| [`color.getAlpha()`](getAlpha.md) | Return the alpha (transparency) component of the color. |
-| [`color.getRGB()`](getRGB.md) | Return the color's red, green, and blue components together. |
-| [`color.getRGBA()`](getRGBA.md) | Return the color's red, green, blue, and alpha components together. |
-| [`color.setRed(red)`](setRed.md) | Set the red component of the color. |
-| [`color.setGreen(green)`](setGreen.md) | Set the green component of the color. |
-| [`color.setBlue(blue)`](setBlue.md) | Set the blue component of the color. |
-| [`color.setAlpha(alpha)`](setAlpha.md) | Set the alpha (transparency) component of the color. |
-| [`color.brighter()`](brighter.md) | Return a brighter version of the color. |
-| [`color.darker()`](darker.md) | Return a darker version of the color. |
+| [`getRed()`](getRed.md) | Return the red component of the color. |
+| [`setRed(red)`](setRed.md) | Set the red component of the color. |
+| [`getGreen()`](getGreen.md) | Return the green component of the color. |
+| [`setGreen(green)`](setGreen.md) | Set the green component of the color. |
+| [`getBlue()`](getBlue.md) | Return the blue component of the color. |
+| [`setBlue(blue)`](setBlue.md) | Set the blue component of the color. |
+| [`getAlpha()`](getAlpha.md) | Return the alpha (transparency) component of the color. |
+| [`setAlpha(alpha)`](setAlpha.md) | Set the alpha (transparency) component of the color. |
+| [`getRGB()`](getRGB.md) | Return the color's red, green, and blue components together. |
+| [`getRGBA()`](getRGBA.md) | Return the color's red, green, blue, and alpha components together. |
+| [`brighter()`](brighter.md) | Return a brighter version of the color. |
+| [`darker()`](darker.md) | Return a darker version of the color. |
 
 ## Static Functions
 

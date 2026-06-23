@@ -1,6 +1,10 @@
 # getFont()
 
-Return the area's font.
+Return the area's [Font](../font/index.md).
+
+## Parameters
+
+Once an object `textarea` has been created, you can use the following function:
 
 ```python
 textarea.getFont()
@@ -12,4 +16,4 @@ textarea.getFont()
 
 | Value | Type | Description |
 |---|---|---|
-| font | `Font` | The area's font, or None if it uses the default font. |
+| font | `Font` | The area's font, or `None` if it uses the default font. |

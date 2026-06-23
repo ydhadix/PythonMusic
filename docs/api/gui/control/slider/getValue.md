@@ -2,6 +2,10 @@
 
 Return the slider's current value.
 
+## Parameters
+
+Once an object `slider` has been created, you can use the following function:
+
 ```python
 slider.getValue()
 ```

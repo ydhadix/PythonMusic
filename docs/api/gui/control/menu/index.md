@@ -20,17 +20,17 @@ Menu(title)
 
 Once a menu is created, it can be populated using the [addItem()](addItem.md) and [addItemList()](addItemList.md) functions.
 
-Once created, you can add it to a [Display](../../display/index.md) using the Display's [addMenu()](../../display/addMenu.md) or [addPopupMen()](../../display/addPopupMenu.md) function.
+Once created, you can add it to a [Display](../../display/index.md) using the Display's [addMenu()](../../display/addMenu.md) or [addPopupMenu()](../../display/addPopupMenu.md) function.
 
 ## Functions
 
-Once a Menu `menu` has been created, the following functions are available:
+Once a Menu has been created, the following functions are available:
 
 | Function | Description |
 |---|---|
-| [`menu.addItem()`](addItem.md) | Add an item to the menu. |
-| [`menu.addItemList()`](addItemList.md) | Add several items to the menu at once. |
-| [`menu.addSeparator()`](addSeparator.md) | Add a separator line to the menu. |
-| [`menu.addSubmenu(menu)`](addSubmenu.md) | Add a submenu to the menu. |
-| [`menu.enable()`](enable.md) | Enable the menu, so its items can be selected. |
-| [`menu.disable()`](disable.md) | Disable the menu, graying it out so its items cannot be selected. |
+| [`addItem()`](addItem.md) | Add an item to the menu. |
+| [`addItemList()`](addItemList.md) | Add several items to the menu at once. |
+| [`addSeparator()`](addSeparator.md) | Add a separator line to the menu. |
+| [`addSubmenu(menu)`](addSubmenu.md) | Add a submenu to the menu. |
+| [`enable()`](enable.md) | Enable the menu, so its items can be selected. |
+| [`disable()`](disable.md) | Disable the menu, graying it out so its items cannot be selected. |

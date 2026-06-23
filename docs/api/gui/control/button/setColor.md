@@ -2,11 +2,9 @@
 
 Set the button's color.
 
-```python
-button.setColor(color)
-```
-
 ## Parameters
+
+Once an object `button` has been created, you can use the following function:
 
 ```python
 button.setColor(color)

@@ -41,90 +41,22 @@ For example,
 --8<-- "examples/_snippets/simpleFader.py"
 ```
 
-Once created, you can add it to a [Display](../../display/index.md) using the Display's [add()](../../display/add.md) function.
+Once created, you can add it to a [Display](../../display/index.md) using the Display's [add()](../../common/collection/add.md) function.
 
 ## Functions
 
-Once a HFader `hfader` has been created, the following functions are available:
+Once an HFader has been created, the following functions are available:
+
+- [Position](../../common/index.md#position-functions)
+- [Size](../../common/index.md#size-functions)
+- [Visibility](../../common/index.md#visibility-functions)
+- [Information](../../common/index.md#information-functions)
+- [Hit Testing](../../common/index.md#hit-testing-functions)
+- [Events](../../common/index.md#event-functions)
+
+Additionally, the following functions are available specially for HFaders:
 
 | Function | Description |
 |---|---|
-| [`hfader.setValue(newValue)`](setValue.md) | Set the object's value. |
-| [`hfader.getValue()`](getValue.md) | Return the object's current value. |
-
-### Position
-
-| Function | Description |
-|---|---|
-| [`hfader.getPosition()`](getPosition.md) | Return the object's position, the top-left corner of its bounding box. |
-| [`hfader.getX()`](getX.md) | Return the object's horizontal position. |
-| [`hfader.getY()`](getY.md) | Return the object's vertical position. |
-| [`hfader.getCenter()`](getCenter.md) | Return the object's center point. |
-| [`hfader.getCenterX()`](getCenterX.md) | Return the object's horizontal center. |
-| [`hfader.getCenterY()`](getCenterY.md) | Return the object's vertical center. |
-| [`hfader.setPosition(x, y)`](setPosition.md) | Move the object so the top-left corner of its bounding box sits at the given point. |
-| [`hfader.setX(x)`](setX.md) | Set the object's horizontal position. |
-| [`hfader.setY(y)`](setY.md) | Set the object's vertical position. |
-| [`hfader.setCenter(x, y)`](setCenter.md) | Move the object so its center sits at the given point. |
-| [`hfader.setCenterX(x)`](setCenterX.md) | Set the object's horizontal center. |
-| [`hfader.setCenterY(y)`](setCenterY.md) | Set the object's vertical center. |
-| [`hfader.move(x, y)`](move.md) | Move the object to a new position. |
-
-### Size
-
-| Function | Description |
-|---|---|
-| [`hfader.getSize()`](getSize.md) | Return the object's width and height. |
-| [`hfader.getWidth()`](getWidth.md) | Return the object's width. |
-| [`hfader.getHeight()`](getHeight.md) | Return the object's height. |
-| [`hfader.setSize(width, height)`](setSize.md) | Set the object's width and height. |
-| [`hfader.setWidth(width)`](setWidth.md) | Set the object's width. |
-| [`hfader.setHeight(height)`](setHeight.md) | Set the object's height. |
-
-### Rotation
-
-| Function | Description |
-|---|---|
-| [`hfader.getRotation()`](getRotation.md) | Return how far the object is turned. |
-| [`hfader.setRotation(rotation)`](setRotation.md) | Turn the object to a given angle. |
-| [`hfader.rotate(angle)`](rotate.md) | Turn the object by an additional angle. |
-
-### Visibility
-
-| Function | Description |
-|---|---|
-| [`hfader.getVisibility()`](getVisibility.md) | Return how visible the object is. |
-| [`hfader.setVisibility(visibility)`](setVisibility.md) | Set how visible the object is. |
-
-### Information
-
-| Function | Description |
-|---|---|
-| [`hfader.getEndpoints()`](getEndpoints.md) | Return the object's four corners. |
-| [`hfader.getBoundingBox()`](getBoundingBox.md) | Return the smallest upright box that surrounds the object. |
-| [`hfader.getGroup()`](getGroup.md) | Return the Group this object belongs to. |
-| [`hfader.getDisplay()`](getDisplay.md) | Return the Display this object is on. |
-| [`hfader.setToolTipText()`](setToolTipText.md) | Set the hover text shown over the object. |
-
-### Hit Testing
-
-| Function | Description |
-|---|---|
-| [`hfader.contains(x, y)`](contains.md) | Report whether a point lies inside the object. |
-| [`hfader.intersects(other)`](intersects.md) | Report whether this object overlaps another. |
-| [`hfader.encloses(other)`](encloses.md) | Report whether this object completely contains another. |
-
-### Events
-
-| Function | Description |
-|---|---|
-| [`hfader.onMouseClick(action)`](onMouseClick.md) | Set up a function to call when the mouse is clicked on this object. |
-| [`hfader.onMouseDown(action)`](onMouseDown.md) | Set up a function to call when the mouse hfader is pressed on this object. |
-| [`hfader.onMouseUp(action)`](onMouseUp.md) | Set up a function to call when the mouse hfader is released over this object. |
-| [`hfader.onMouseMove(action)`](onMouseMove.md) | Set up a function to call when the mouse moves over this object. |
-| [`hfader.onMouseDrag(action)`](onMouseDrag.md) | Set up a function to call when the mouse is dragged over this object. |
-| [`hfader.onMouseEnter(action)`](onMouseEnter.md) | Set up a function to call when the mouse moves onto this object. |
-| [`hfader.onMouseExit(action)`](onMouseExit.md) | Set up a function to call when the mouse moves off this object. |
-| [`hfader.onKeyType(action)`](onKeyType.md) | Set up a function to call when a key is typed (pressed and released). |
-| [`hfader.onKeyDown(action)`](onKeyDown.md) | Set up a function to call when a key is pressed down. |
-| [`hfader.onKeyUp(action)`](onKeyUp.md) | Set up a function to call when a key is released. |
+| [`setValue(newValue)`](setValue.md) | Set the fader's value. |
+| [`getValue()`](getValue.md) | Return the fader's current value. |

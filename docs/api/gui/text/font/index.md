@@ -32,13 +32,13 @@ Once created, you can use it with the setFont() function from a [Label](../label
 
 ## Functions
 
-Once a Font `font` has been created, the following functions are available:
+Once a Font has been created, the following functions are available:
 
 | Function | Description |
 |---|---|
-| [`font.getName()`](getName.md) | Return the font's name. |
-| [`font.getStyle()`](getStyle.md) | Return the font's style. |
-| [`font.getSize()`](getSize.md) | Return the font's point size. |
-| [`font.setName(name)`](setName.md) | Set the font's name. |
-| [`font.setStyle(style)`](setStyle.md) | Set the font's style. |
-| [`font.setSize(size)`](setSize.md) | Set the font's point size. |
+| [`getName()`](getName.md) | Return the font's name. |
+| [`setName(name)`](setName.md) | Set the font's name. |
+| [`getStyle()`](getStyle.md) | Return the font's style. |
+| [`setStyle(style)`](setStyle.md) | Set the font's style. |
+| [`getSize()`](getSize.md) | Return the font's point size. |
+| [`setSize(size)`](setSize.md) | Set the font's point size. |

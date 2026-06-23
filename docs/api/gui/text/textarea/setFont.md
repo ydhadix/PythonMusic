@@ -1,12 +1,10 @@
 # setFont()
 
-Set the area's font.
-
-```python
-textarea.setFont(font)
-```
+Set the area's [Font](../font/index.md).
 
 ## Parameters
+
+Once an object `textarea` has been created, you can use the following function:
 
 ```python
 textarea.setFont(font)
@@ -14,4 +12,4 @@ textarea.setFont(font)
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
-| `font` | `Font` | _required_ | The new font, for example Font("Serif", Font.ITALIC, 16). |
+| `font` | `Font` | _required_ | The new font, for example `Font("Serif", Font.ITALIC, 16)`. |

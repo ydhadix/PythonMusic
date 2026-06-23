@@ -1,14 +1,12 @@
 # crop()
 
-Crop the image to a rectangular region.
+Crop the icon to a rectangular region.
 
-```python
-icon.crop(x, y, width, height)
-```
-
-Keeps the part of the image starting at (x, y) and extending the given width and height; the rest is discarded.
+This keeps the part of the icon starting at (x, y) and extending the given width and height; the rest is discarded.
 
 ## Parameters
+
+Once an object `icon` has been created, you can use the following functions:
 
 ```python
 icon.crop(x, y, width, height)

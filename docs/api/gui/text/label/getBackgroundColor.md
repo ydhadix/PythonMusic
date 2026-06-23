@@ -1,6 +1,10 @@
 # getBackgroundColor()
 
-Return the label's background color.
+Return the label's background [Color](../../color/index.md).
+
+## Parameters
+
+Once an object `label` has been created, you can use the following function:
 
 ```python
 label.getBackgroundColor()

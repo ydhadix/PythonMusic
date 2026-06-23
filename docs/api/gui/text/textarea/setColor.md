@@ -1,12 +1,10 @@
 # setColor()
 
-Set the area's color.
-
-```python
-textarea.setColor(color)
-```
+Set the textarea's background [Color](../../color/index.md).
 
 ## Parameters
+
+Once an object `textarea` has been created, you can use the following function:
 
 ```python
 textarea.setColor(color)

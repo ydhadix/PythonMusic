@@ -1,15 +1,17 @@
 # setTextColor()
 
-Set the label's text color.
+Set the label's text [Color](../../color/index.md).
+
+## Parameters
+
+Once an object `label` has been created, you can use the following functions:
 
 ```python
 label.setTextColor()
 ```
 
-## Parameters
-
 ```python
-label.setTextColor(color=None)
+label.setTextColor(color)
 ```
 
 | Parameter | Type | Default | Description |

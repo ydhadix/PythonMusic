@@ -1,9 +1,11 @@
 # uncheck()
 
-Uncheck the checkbox.
+Uncheck the checkbox.  This does not call the checkbox's function.
+
+## Parameters
+
+Once an object `checkbox` has been created, you can use the following function:
 
 ```python
 checkbox.uncheck()
 ```
-
-Makes the checkbox appear unchecked. This does not call the checkbox's function.

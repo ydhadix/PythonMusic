@@ -2,14 +2,20 @@
 
 Add an item to the menu.
 
+## Parameters
+
+Once an object `menu` has been created, you can use the following functions:
+
 ```python
 menu.addItem()
 ```
 
-## Parameters
+```python
+menu.addItem(item)
+```
 
 ```python
-menu.addItem(item='', action=None)
+menu.addItem(item, action)
 ```
 
 | Parameter | Type | Default | Description |

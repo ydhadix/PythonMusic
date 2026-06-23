@@ -2,11 +2,9 @@
 
 Set the label's text.
 
-```python
-label.setText(text)
-```
-
 ## Parameters
+
+Once an object `label` has been created, you can use the following function:
 
 ```python
 label.setText(text)

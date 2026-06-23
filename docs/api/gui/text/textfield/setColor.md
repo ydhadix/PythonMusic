@@ -1,12 +1,10 @@
 # setColor()
 
-Set the field's color.
-
-```python
-textfield.setColor(color)
-```
+Set the text field's background [Color](../../color/index.md).
 
 ## Parameters
+
+Once an object `textfield` has been created, you can use the following function:
 
 ```python
 textfield.setColor(color)

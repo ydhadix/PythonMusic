@@ -2,6 +2,12 @@
 
 Return how the label's text lines up.
 
+
+
+## Parameters
+
+Once an object `label` has been created, you can use the following function:
+
 ```python
 label.getAlignment()
 ```
@@ -12,4 +18,4 @@ label.getAlignment()
 
 | Value | Type | Description |
 |---|---|---|
-| alignment | `int` | The text alignment, one of LEFT, CENTER, or RIGHT. |
+| alignment | `int` | The text alignment. |

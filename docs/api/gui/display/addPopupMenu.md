@@ -2,11 +2,9 @@
 
 Add a pop-up (right-click) menu to the display.
 
-```python
-display.addPopupMenu(menu)
-```
-
 ## Parameters
+
+Once an object `display` has been created, you can use the following function:
 
 ```python
 display.addPopupMenu(menu)

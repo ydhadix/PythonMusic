@@ -2,11 +2,9 @@
 
 Set the button's text.
 
-```python
-button.setText(text)
-```
-
 ## Parameters
+
+Once an object `button` has been created, you can use the following function:
 
 ```python
 button.setText(text)

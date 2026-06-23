@@ -1,6 +1,10 @@
 # getFont()
 
-Return the field's font.
+Return the field's [Font](../font/index.md).
+
+## Parameters
+
+Once an object `textfield` has been created, you can use the following function:
 
 ```python
 textfield.getFont()

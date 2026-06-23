@@ -2,11 +2,9 @@
 
 Set the display's title.
 
-```python
-display.setTitle(title)
-```
-
 ## Parameters
+
+Once an object `display` has been created, you can use the following function:
 
 ```python
 display.setTitle(title)

@@ -1,9 +1,13 @@
 # getValue()
 
-Return the control's current value.
+Return the fader's current value.
+
+## Parameters
+
+Once an object `fader` has been created, you can use the following function:
 
 ```python
-vfader.getValue()
+fader.getValue()
 ```
 
 ## Returns
@@ -12,4 +16,4 @@ vfader.getValue()
 
 | Value | Type | Description |
 |---|---|---|
-| value | `int` | The control's current value. |
+| value | `int` | The fader's current value. |

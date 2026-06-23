@@ -2,6 +2,10 @@
 
 Return the tracker's position within the pad.
 
+## Parameters
+
+Once an object `xypad` has been created, you can use the following function:
+
 ```python
 xypad.getValue()
 ```

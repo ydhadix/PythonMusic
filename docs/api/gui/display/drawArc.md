@@ -2,16 +2,22 @@
 
 Draw an arc straight onto the display.
 
+The arc is part of the oval that fills the box with corners (x1, y1) and (x2, y2). Angles are in degrees, with 0 at the three o'clock position; a positive angle goes counter-clockwise, a negative one clockwise. The constants `HALF_PI`, `PI`, and `TWO_PI` may be used for the angles.
+
+This draws to the canvas and returns nothing, which is fast and best for shapes you will not change later. To keep a handle you can move or delete, create an [Arc](../shapes/arc/index.md) and [add()](../common/collection/add.md) it instead.
+
+Erase these drawings with [clearDrawing()](clearDrawing.md).
+
+## Parameters
+
+Once an object `display` has been created, you can use the following functions:
+
 ```python
 display.drawArc(x1, y1, x2, y2)
 ```
 
-The arc is part of the oval that fills the box with corners (x1, y1) and (x2, y2). Angles are in degrees, with 0 at the three o'clock position; a positive angle goes counter-clockwise, a negative one clockwise. The constants HALF_PI, PI, and TWO_PI may be used for the angles. This draws to the canvas and returns nothing, which is fast and best for shapes you will not change later. To keep a handle you can move or delete, create an Arc and [add()](add.md) it instead. Erase these drawings with [clearDrawing()](clearDrawing.md).
-
-## Parameters
-
 ```python
-display.drawArc(x1, y1, x2, y2, startAngle=PI, endAngle=TWO_PI, style=OPEN, color=Color.BLACK, fill=False, thickness=1, rotation=0)
+display.drawArc(x1, y1, x2, y2, startAngle, endAngle, style, color, fill, thickness, rotation, visibility)
 ```
 
 | Parameter | Type | Default | Description |
@@ -27,3 +33,4 @@ display.drawArc(x1, y1, x2, y2, startAngle=PI, endAngle=TWO_PI, style=OPEN, colo
 | `fill` | `bool` | `False` | Whether the arc is filled in (True) or just an outline (False). |
 | `thickness` | `int` | `1` | The outline thickness, in pixels. |
 | `rotation` | `int or float` | `0` | How far to turn the arc, in degrees, counter-clockwise. |
+| `visibility` | `int` | `100` | How visible the arc is, from 0 (invisible) to 100 (fully visible). |

@@ -2,11 +2,9 @@
 
 Set the text in the field.
 
-```python
-textfield.setText(text)
-```
-
 ## Parameters
+
+Once an object `textfield` has been created, you can use the following function:
 
 ```python
 textfield.setText(text)

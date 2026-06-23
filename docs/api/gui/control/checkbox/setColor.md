@@ -2,11 +2,9 @@
 
 Set the checkbox's color.
 
-```python
-checkbox.setColor(color)
-```
-
 ## Parameters
+
+Once an object `checkbox` has been created, you can use the following function:
 
 ```python
 checkbox.setColor(color)

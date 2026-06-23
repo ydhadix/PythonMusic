@@ -1,6 +1,10 @@
 # getValue()
 
-Report whether the button is currently held down.
+Report whether the toggle is currently pressed.
+
+## Parameters
+
+Once an object `toggle` has been created, you can use the following function:
 
 ```python
 toggle.getValue()
@@ -12,4 +16,4 @@ toggle.getValue()
 
 | Value | Type | Description |
 |---|---|---|
-| value | `bool` | True if the button is held down, False otherwise. |
+| value | `bool` | `True` if the button is held down, `False` otherwise. |

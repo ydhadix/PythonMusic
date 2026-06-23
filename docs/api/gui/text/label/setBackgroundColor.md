@@ -1,15 +1,17 @@
 # setBackgroundColor()
 
-Set the label's background color.
+Set the label's background [Color](../../color/index.md).
+
+## Parameters
+
+Once an object `label` has been created, you can use the following functions:
 
 ```python
 label.setBackgroundColor()
 ```
 
-## Parameters
-
 ```python
-label.setBackgroundColor(color=None)
+label.setBackgroundColor(color)
 ```
 
 | Parameter | Type | Default | Description |

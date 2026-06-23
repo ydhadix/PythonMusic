@@ -2,16 +2,20 @@
 
 Draw a line straight onto the display.
 
+This draws to the canvas and returns nothing, which is fast and best for shapes you will not change later. To keep a handle you can move or delete, create a [Line](../shapes/line/index.md) and [add()](../common/collection/add.md) it instead.
+
+Erase these drawings with [clearDrawing()](clearDrawing.md).
+
+## Parameters
+
+Once an object `display` has been created, you can use the following functions:
+
 ```python
 display.drawLine(x1, y1, x2, y2)
 ```
 
-This draws to the canvas and returns nothing, which is fast and best for shapes you will not change later. To keep a handle you can move or delete, create a Line and [add()](add.md) it instead. Erase these drawings with [clearDrawing()](clearDrawing.md).
-
-## Parameters
-
 ```python
-display.drawLine(x1, y1, x2, y2, color=Color.BLACK, thickness=1, rotation=0)
+display.drawLine(x1, y1, x2, y2, color, thickness, rotation, visibility)
 ```
 
 | Parameter | Type | Default | Description |
@@ -23,3 +27,4 @@ display.drawLine(x1, y1, x2, y2, color=Color.BLACK, thickness=1, rotation=0)
 | `color` | `Color` | `Color.BLACK` | The color. |
 | `thickness` | `int` | `1` | The line thickness, in pixels. |
 | `rotation` | `int or float` | `0` | How far to turn the line, in degrees, counter-clockwise. |
+| `visibility` | `int` | `100` | How visible the line is, from 0 (invisible) to 100 (fully visible). |
