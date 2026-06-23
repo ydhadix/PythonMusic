@@ -453,6 +453,18 @@ body { background-color: var(--pm-page-bg); }
   letter-spacing: 0.05em; color: var(--md-default-fg-color--light); opacity: 0.65;
 }
 
+/* Separators in the collapsed/mobile drawer (Material's full nav tree; sentinel
+   "sep:" entries, see navtools.py and partials/nav-item.html). Borrows the megamenu
+   treatment: a flush, full-width border that reads as a divider BETWEEN the two
+   items, not a line hanging off the one above. Labelled entries become a small
+   grouped subheading instead. */
+.pm-drawernav__sep { list-style: none; margin: 0; border-top: 4px solid #cccccc; }
+.pm-drawernav__sep--labeled { margin: 0; border-top: none; padding: 0.35rem 0.7rem 0.15rem; }
+.pm-drawernav__sep-label {
+  font-size: 0.55rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: #999999;
+}
+
 /* =========================================================================
    Material default overrides
    ========================================================================= */
