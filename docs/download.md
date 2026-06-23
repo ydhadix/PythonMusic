@@ -23,16 +23,18 @@ PEM is bundled with all PythonMusic libraries, and other essential Python librar
 
 ### Windows
 
-1. [Download PEM for Windows]().  <!--TODO: Link to download-->
-2. Double-click **PEM.exe** to run.
-3. (Optional) Right-click PEM.exe, and select "Create Shortcut". Move this shortcut to your Desktop for easy access.
+1. [Download PEM for Windows](https://github.com/ydhadix/PythonMusic/releases/latest/download/PEM-Windows.zip).
+2. Unzip the downloaded file.
+3. Double-click **PEM.exe** to run.
+4. (Optional) Right-click PEM.exe, and select "Create Shortcut". Move this shortcut to your Desktop for easy access.
 
 ### Mac
 
-1. [Download PEM for MacOS]().  <!--TODO: Link to download-->
-2. Move **PEM** to your Applications folder.
-3. Double-click PEM to run.
-4. (Optional) While PEM is running, control-click the PEM icon on the taskbar. Select “Options” and “Keep in Dock” for easy access.
+1. [Download PEM for MacOS](https://github.com/ydhadix/PythonMusic/releases/latest/download/PEM-macOS-AppleSilicon.tar.gz).
+2. Double-click the downloaded file to extract **PEM**.
+3. Move **PEM** to your Applications folder.
+4. Double-click PEM to run.
+5. (Optional) While PEM is running, control-click the PEM icon on the taskbar. Select “Options” and “Keep in Dock” for easy access.
 
 #### Mac Security Issue
 

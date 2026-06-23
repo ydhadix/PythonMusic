@@ -108,21 +108,21 @@ jobs:
 
       # build.py drops one versioned archive in PEM/dist/<system>/:
       #   Windows -> PEM-<version>.zip      macOS -> PEM-<version>.tar.gz
-      # Both macOS archives share a name, so tag each asset with its platform
-      # to keep the release downloads unique.
+      # Re-stage each under a stable, version-LESS, per-platform name so the
+      # docs can link to the permanent download URL that always serves the
+      # newest release: github.com/.../releases/latest/download/PEM-<platform>.<ext>
       - name: Stage release asset
         shell: bash
         run: |
           mkdir -p staging
           for f in PEM/dist/*/PEM-*.zip PEM/dist/*/PEM-*.tar.gz; do
             [ -e "$f" ] || continue
-            base=$(basename "$f")
-            case "$base" in
-              *.tar.gz) stem="${base%.tar.gz}"; ext="tar.gz" ;;
-              *.zip)    stem="${base%.zip}";    ext="zip" ;;
+            case "$f" in
+              *.tar.gz) ext="tar.gz" ;;
+              *.zip)    ext="zip" ;;
               *)        continue ;;
             esac
-            cp "$f" "staging/${stem}-${{ matrix.label }}.${ext}"
+            cp "$f" "staging/PEM-${{ matrix.label }}.${ext}"
           done
           ls -la staging
 
