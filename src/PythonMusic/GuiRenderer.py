@@ -1360,11 +1360,14 @@ class DisplayMirror:
       pixmap.fill(QtCore.Qt.GlobalColor.transparent)
       return pixmap
 
-   def _openDrawPainter(self):
-      """Opens an antialiased QPainter on the draw pixmap and returns it."""
+   def _openDrawPainter(self, visibility=100):
+      """Opens an antialiased QPainter on the draw pixmap and returns it.  The painter's
+      opacity is set from visibility (0 = invisible, 100 = fully visible) so every shape
+      it paints is drawn at that opacity."""
       painter = QtGui.QPainter(self._drawPixmap)
       painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
       painter.setRenderHint(QtGui.QPainter.RenderHint.SmoothPixmapTransform)
+      painter.setOpacity(max(0, min(100, visibility)) / 100.0)
       return painter
 
    def _closeDrawPainter(self, painter):
@@ -1403,12 +1406,13 @@ class DisplayMirror:
       y         = args.get('y',         0)
       width     = args.get('width',     10)
       height    = args.get('height',    10)
-      color     = args.get('color',     [0, 0, 0, 255])
-      fill      = args.get('fill',      False)
-      thickness = args.get('thickness', 1)
-      rotation  = args.get('rotation',  0)
+      color      = args.get('color',      [0, 0, 0, 255])
+      fill       = args.get('fill',       False)
+      thickness  = args.get('thickness',  1)
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
       painter.setBrush(self._makeDrawBrush(color, fill))
 
@@ -1439,12 +1443,13 @@ class DisplayMirror:
       y         = args.get('y',         0)
       width     = args.get('width',     10)
       height    = args.get('height',    10)
-      color     = args.get('color',     [0, 0, 0, 255])
-      fill      = args.get('fill',      False)
-      thickness = args.get('thickness', 1)
-      rotation  = args.get('rotation',  0)
+      color      = args.get('color',      [0, 0, 0, 255])
+      fill       = args.get('fill',       False)
+      thickness  = args.get('thickness',  1)
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
       painter.setBrush(self._makeDrawBrush(color, fill))
 
@@ -1486,6 +1491,7 @@ class DisplayMirror:
       fill       = args.get('fill',       False)
       thickness  = args.get('thickness',  1)
       rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
       arcWidth = -(endAngle - startAngle)   # Qt sweeps CW for positive span
 
@@ -1498,7 +1504,7 @@ class DisplayMirror:
       elif style == _CHORD:
          path.closeSubpath()
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
       painter.setBrush(self._makeDrawBrush(color, fill))
 
@@ -1527,13 +1533,14 @@ class DisplayMirror:
       """
       x1        = args.get('x1',        0)
       y1        = args.get('y1',        0)
-      x2        = args.get('x2',        100)
-      y2        = args.get('y2',        100)
-      color     = args.get('color',     [0, 0, 0, 255])
-      thickness = args.get('thickness', 1)
-      rotation  = args.get('rotation',  0)
+      x2         = args.get('x2',         100)
+      y2         = args.get('y2',         100)
+      color      = args.get('color',      [0, 0, 0, 255])
+      thickness  = args.get('thickness',  1)
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
 
       if rotation != 0:
@@ -1558,16 +1565,17 @@ class DisplayMirror:
         thickness — int (line width)
         rotation  — degrees (CCW visual)
       """
-      xPoints   = args.get('xPoints',   [0, 100])
-      yPoints   = args.get('yPoints',   [0, 100])
-      color     = args.get('color',     [0, 0, 0, 255])
-      thickness = args.get('thickness', 1)
-      rotation  = args.get('rotation',  0)
+      xPoints    = args.get('xPoints',    [0, 100])
+      yPoints    = args.get('yPoints',    [0, 100])
+      color      = args.get('color',      [0, 0, 0, 255])
+      thickness  = args.get('thickness',  1)
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
       points  = [QtCore.QPointF(x, y) for x, y in zip(xPoints, yPoints)]
       polygon = QtGui.QPolygonF(points)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
       painter.setBrush(QtCore.Qt.BrushStyle.NoBrush)
 
@@ -1594,17 +1602,18 @@ class DisplayMirror:
         thickness — int (line width)
         rotation  — degrees (CCW visual)
       """
-      xPoints   = args.get('xPoints',   [0, 100, 50])
-      yPoints   = args.get('yPoints',   [0,   0, 100])
-      color     = args.get('color',     [0, 0, 0, 255])
-      fill      = args.get('fill',      False)
-      thickness = args.get('thickness', 1)
-      rotation  = args.get('rotation',  0)
+      xPoints    = args.get('xPoints',    [0, 100, 50])
+      yPoints    = args.get('yPoints',    [0,   0, 100])
+      color      = args.get('color',      [0, 0, 0, 255])
+      fill       = args.get('fill',       False)
+      thickness  = args.get('thickness',  1)
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
       points  = [QtCore.QPointF(x, y) for x, y in zip(xPoints, yPoints)]
       polygon = QtGui.QPolygonF(points)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
       painter.setPen(self._makeDrawPen(color, thickness))
       painter.setBrush(self._makeDrawBrush(color, fill))
 
@@ -1628,12 +1637,13 @@ class DisplayMirror:
         width, height — target dimensions (None = use pixmap's native size)
         rotation      — degrees (CCW visual)
       """
-      filename = args.get('filename', '')
-      x        = args.get('x',        0)
-      y        = args.get('y',        0)
-      width    = args.get('width')
-      height   = args.get('height')
-      rotation = args.get('rotation', 0)
+      filename   = args.get('filename',   '')
+      x          = args.get('x',          0)
+      y          = args.get('y',          0)
+      width      = args.get('width')
+      height     = args.get('height')
+      rotation   = args.get('rotation',   0)
+      visibility = args.get('visibility', 100)
 
       pixmap = QtGui.QPixmap(filename)
       if pixmap.isNull():
@@ -1651,7 +1661,7 @@ class DisplayMirror:
                              QtCore.Qt.AspectRatioMode.IgnoreAspectRatio,
                              QtCore.Qt.TransformationMode.SmoothTransformation)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
 
       if rotation != 0:
          cx = x + width  / 2
@@ -1675,13 +1685,14 @@ class DisplayMirror:
         color — [r, g, b, a]
         font  — None, or [name, [weight, italic], size]
       """
-      text  = str(args.get('text',  ''))
-      x     = args.get('x',     0)
-      y     = args.get('y',     0)
-      color = args.get('color', [0, 0, 0, 255])
-      font  = args.get('font')
+      text       = str(args.get('text',  ''))
+      x          = args.get('x',          0)
+      y          = args.get('y',          0)
+      color      = args.get('color',      [0, 0, 0, 255])
+      font       = args.get('font')
+      visibility = args.get('visibility', 100)
 
-      painter = self._openDrawPainter()
+      painter = self._openDrawPainter(visibility)
 
       r, g, b, a = color
       painter.setPen(QtGui.QColor(r, g, b, a))
@@ -2837,6 +2848,7 @@ class GroupMirror(_DrawableMirror):
          'addChild':      self._addChild,
          'addChildOrder': self._addChildOrder,
          'removeChild':   self._removeChild,
+         'removeAll':     self._removeAll,
          'getOrder':      self._getOrder,
          'setOrder':      self._setOrder,
       })
@@ -2906,6 +2918,12 @@ class GroupMirror(_DrawableMirror):
       if item is not None and item in self._itemList:
          self._itemList.remove(item)
          _detachItem(item)
+
+   def _removeAll(self, args, responseId):
+      """Detaches every child from the group; each is removed from the scene entirely."""
+      for item in list(self._itemList):
+         _detachItem(item)
+      self._itemList.clear()
 
    def _getOrder(self, args, responseId):
       """Returns the order of a child in the group."""

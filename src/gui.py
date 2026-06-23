@@ -1304,6 +1304,79 @@ class Display(Interactable):
       """
       _handler().sendCommand('setPosition', self._objectId, {'x': int(x), 'y': int(y)})
 
+   def getX(self):
+      """Return the display's horizontal position on the screen.
+
+      Returns:
+          x (int or float): The horizontal position of the window's top-left corner, in pixels.
+      """
+      # updates to getPosition() automatically update how this method works
+      x, _ = self.getPosition()
+      return x
+
+   def setX(self, x):
+      """Set the display's horizontal position on the screen.
+
+      Args:
+          x (int or float): The new horizontal position of the window's top-left corner, in pixels.
+      """
+      # updates to setPosition() automatically update how this method works
+      self.setPosition(x, self.getY())
+
+   def getY(self):
+      """Return the display's vertical position on the screen.
+
+      Returns:
+          y (int or float): The vertical position of the window's top-left corner, in pixels.
+      """
+      # updates to getPosition() automatically update how this method works
+      _, y = self.getPosition()
+      return y
+
+   def setY(self, y):
+      """Set the display's vertical position on the screen.
+
+      Args:
+          y (int or float): The new vertical position of the window's top-left corner, in pixels.
+      """
+      # updates to setPosition() automatically update how this method works
+      self.setPosition(self.getX(), y)
+
+   def getCenter(self):
+      """Return the center point of the display's canvas.
+
+      The center is the canvas width divided by two and the canvas height divided by two,
+      measured from the top-left corner (0, 0).
+
+      Returns:
+          centerX (int or float): The horizontal position of the canvas center, in pixels.
+          centerY (int or float): The vertical position of the canvas center, in pixels.
+      """
+      width, height = self.getSize()
+      centerX = width / 2
+      centerY = height / 2
+      return centerX, centerY
+
+   def getCenterX(self):
+      """Return the horizontal center of the display's canvas.
+
+      Returns:
+          x (int or float): The horizontal position of the canvas center, in pixels.
+      """
+      # updates to getCenter() automatically update how this method works
+      x, _ = self.getCenter()
+      return x
+
+   def getCenterY(self):
+      """Return the vertical center of the display's canvas.
+
+      Returns:
+          y (int or float): The vertical position of the canvas center, in pixels.
+      """
+      # updates to getCenter() automatically update how this method works
+      _, y = self.getCenter()
+      return y
+
    def getItems(self):
       """Return the GUI objects currently on the display.
 
@@ -1375,7 +1448,7 @@ class Display(Interactable):
       """
       _handler().sendCommand('clearDrawing', self._objectId)
 
-   def drawRectangle(self, x1, y1, x2, y2, color=Color.BLACK, fill=False, thickness=1, rotation=0):
+   def drawRectangle(self, x1, y1, x2, y2, color=Color.BLACK, fill=False, thickness=1, rotation=0, visibility=100):
       """Draw a rectangle straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for shapes you
@@ -1391,20 +1464,22 @@ class Display(Interactable):
           fill (bool, optional): Whether the rectangle is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
           rotation (int or float, optional): How far to turn the rectangle, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the rectangle is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'rectangle',
-         'x':         min(x1, x2),
-         'y':         min(y1, y2),
-         'width':     abs(x1 - x2),
-         'height':    abs(y1 - y2),
-         'color':     color.getRGBA(),
-         'fill':      bool(fill),
-         'thickness': int(thickness),
-         'rotation':  rotation,
+         'shape':      'rectangle',
+         'x':          min(x1, x2),
+         'y':          min(y1, y2),
+         'width':      abs(x1 - x2),
+         'height':     abs(y1 - y2),
+         'color':      color.getRGBA(),
+         'fill':       bool(fill),
+         'thickness':  int(thickness),
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawOval(self, x1, y1, x2, y2, color=Color.BLACK, fill=False, thickness=1, rotation=0):
+   def drawOval(self, x1, y1, x2, y2, color=Color.BLACK, fill=False, thickness=1, rotation=0, visibility=100):
       """Draw an oval straight onto the display.
 
       The oval fills the box with corners (x1, y1) and (x2, y2). This draws to the canvas
@@ -1421,20 +1496,22 @@ class Display(Interactable):
           fill (bool, optional): Whether the oval is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
           rotation (int or float, optional): How far to turn the oval, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the oval is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'oval',
-         'x':         min(x1, x2),
-         'y':         min(y1, y2),
-         'width':     abs(x1 - x2),
-         'height':    abs(y1 - y2),
-         'color':     color.getRGBA(),
-         'fill':      bool(fill),
-         'thickness': int(thickness),
-         'rotation':  rotation,
+         'shape':      'oval',
+         'x':          min(x1, x2),
+         'y':          min(y1, y2),
+         'width':      abs(x1 - x2),
+         'height':     abs(y1 - y2),
+         'color':      color.getRGBA(),
+         'fill':       bool(fill),
+         'thickness':  int(thickness),
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawCircle(self, x, y, radius, color=Color.BLACK, fill=False, thickness=1):
+   def drawCircle(self, x, y, radius, color=Color.BLACK, fill=False, thickness=1, visibility=100):
       """Draw a circle straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for shapes you
@@ -1448,21 +1525,23 @@ class Display(Interactable):
           color (Color, optional): The color.
           fill (bool, optional): Whether the circle is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
+          visibility (int, optional): How visible the circle is, from 0 (invisible) to 100 (fully visible).
       """
       diameter = radius * 2
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'circle',
-         'x':         x - radius,
-         'y':         y - radius,
-         'width':     diameter,
-         'height':    diameter,
-         'color':     color.getRGBA(),
-         'fill':      bool(fill),
-         'thickness': int(thickness),
-         'rotation':  0,
+         'shape':      'circle',
+         'x':          x - radius,
+         'y':          y - radius,
+         'width':      diameter,
+         'height':     diameter,
+         'color':      color.getRGBA(),
+         'fill':       bool(fill),
+         'thickness':  int(thickness),
+         'rotation':   0,
+         'visibility': visibility,
       })
 
-   def drawPoint(self, x, y, color=Color.BLACK):
+   def drawPoint(self, x, y, color=Color.BLACK, visibility=100):
       """Draw a single point straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for shapes you
@@ -1473,20 +1552,22 @@ class Display(Interactable):
           x (int or float): The horizontal position, in pixels.
           y (int or float): The vertical position, in pixels.
           color (Color, optional): The color.
+          visibility (int, optional): How visible the point is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'point',
-         'x':         x - 1,
-         'y':         y - 1,
-         'width':     2,
-         'height':    2,
-         'color':     color.getRGBA(),
-         'fill':      True,
-         'thickness': 1,
-         'rotation':  0,
+         'shape':      'point',
+         'x':          x - 1,
+         'y':          y - 1,
+         'width':      2,
+         'height':     2,
+         'color':      color.getRGBA(),
+         'fill':       True,
+         'thickness':  1,
+         'rotation':   0,
+         'visibility': visibility,
       })
 
-   def drawArc(self, x1, y1, x2, y2, startAngle=PI, endAngle=TWO_PI, style=OPEN, color=Color.BLACK, fill=False, thickness=1, rotation=0):
+   def drawArc(self, x1, y1, x2, y2, startAngle=PI, endAngle=TWO_PI, style=OPEN, color=Color.BLACK, fill=False, thickness=1, rotation=0, visibility=100):
       """Draw an arc straight onto the display.
 
       The arc is part of the oval that fills the box with corners (x1, y1) and (x2, y2).
@@ -1508,6 +1589,7 @@ class Display(Interactable):
           fill (bool, optional): Whether the arc is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
           rotation (int or float, optional): How far to turn the arc, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the arc is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
          'shape':      'arc',
@@ -1522,9 +1604,10 @@ class Display(Interactable):
          'fill':       bool(fill),
          'thickness':  int(thickness),
          'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawArcCircle(self, x, y, radius, startAngle=PI, endAngle=TWO_PI, style=OPEN, color=Color.BLACK, fill=False, thickness=1, rotation=0):
+   def drawArcCircle(self, x, y, radius, startAngle=PI, endAngle=TWO_PI, style=OPEN, color=Color.BLACK, fill=False, thickness=1, rotation=0, visibility=100):
       """Draw a circular arc straight onto the display.
 
       Like drawArc(), but the arc is part of a circle given by its center and radius.
@@ -1545,6 +1628,7 @@ class Display(Interactable):
           fill (bool, optional): Whether the arc is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
           rotation (int or float, optional): How far to turn the arc, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the arc is, from 0 (invisible) to 100 (fully visible).
       """
       diameter = radius * 2
       _handler().sendCommand('draw', self._objectId, {
@@ -1560,9 +1644,10 @@ class Display(Interactable):
          'fill':       bool(fill),
          'thickness':  int(thickness),
          'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawPolyline(self, xPoints, yPoints, color=Color.BLACK, thickness=1, rotation=0):
+   def drawPolyline(self, xPoints, yPoints, color=Color.BLACK, thickness=1, rotation=0, visibility=100):
       """Draw a connected series of line segments straight onto the display.
 
       The xPoints and yPoints lists are parallel: the first corner is (xPoints[0],
@@ -1577,17 +1662,19 @@ class Display(Interactable):
           color (Color, optional): The color.
           thickness (int, optional): The line thickness, in pixels.
           rotation (int or float, optional): How far to turn the shape, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the shape is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'polyline',
-         'xPoints':   list(xPoints),
-         'yPoints':   list(yPoints),
-         'color':     color.getRGBA(),
-         'thickness': int(thickness),
-         'rotation':  rotation,
+         'shape':      'polyline',
+         'xPoints':    list(xPoints),
+         'yPoints':    list(yPoints),
+         'color':      color.getRGBA(),
+         'thickness':  int(thickness),
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawLine(self, x1, y1, x2, y2, color=Color.BLACK, thickness=1, rotation=0):
+   def drawLine(self, x1, y1, x2, y2, color=Color.BLACK, thickness=1, rotation=0, visibility=100):
       """Draw a line straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for shapes you
@@ -1602,19 +1689,21 @@ class Display(Interactable):
           color (Color, optional): The color.
           thickness (int, optional): The line thickness, in pixels.
           rotation (int or float, optional): How far to turn the line, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the line is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'line',
-         'x1':        x1,
-         'y1':        y1,
-         'x2':        x2,
-         'y2':        y2,
-         'color':     color.getRGBA(),
-         'thickness': int(thickness),
-         'rotation':  rotation,
+         'shape':      'line',
+         'x1':         x1,
+         'y1':         y1,
+         'x2':         x2,
+         'y2':         y2,
+         'color':      color.getRGBA(),
+         'thickness':  int(thickness),
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawPolygon(self, xPoints, yPoints, color=Color.BLACK, fill=False, thickness=1, rotation=0):
+   def drawPolygon(self, xPoints, yPoints, color=Color.BLACK, fill=False, thickness=1, rotation=0, visibility=100):
       """Draw a polygon straight onto the display.
 
       The xPoints and yPoints lists are parallel: the first corner is (xPoints[0],
@@ -1630,18 +1719,20 @@ class Display(Interactable):
           fill (bool, optional): Whether the polygon is filled in (True) or just an outline (False).
           thickness (int, optional): The outline thickness, in pixels.
           rotation (int or float, optional): How far to turn the polygon, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the polygon is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':     'polygon',
-         'xPoints':   list(xPoints),
-         'yPoints':   list(yPoints),
-         'color':     color.getRGBA(),
-         'fill':      bool(fill),
-         'thickness': int(thickness),
-         'rotation':  rotation,
+         'shape':      'polygon',
+         'xPoints':    list(xPoints),
+         'yPoints':    list(yPoints),
+         'color':      color.getRGBA(),
+         'fill':       bool(fill),
+         'thickness':  int(thickness),
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawIcon(self, filename, x, y, width=None, height=None, rotation=0):
+   def drawIcon(self, filename, x, y, width=None, height=None, rotation=0, visibility=100):
       """Draw an image straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for images you
@@ -1655,18 +1746,20 @@ class Display(Interactable):
           width (int or float, optional): The width to scale the image to, in pixels. Defaults to the image's own width.
           height (int or float, optional): The height to scale the image to, in pixels. Defaults to the image's own height.
           rotation (int or float, optional): How far to turn the image, in degrees, counter-clockwise.
+          visibility (int, optional): How visible the image is, from 0 (invisible) to 100 (fully visible).
       """
       _handler().sendCommand('draw', self._objectId, {
-         'shape':    'icon',
-         'filename': filename,
-         'x':        x,
-         'y':        y,
-         'width':    width,
-         'height':   height,
-         'rotation': rotation,
+         'shape':      'icon',
+         'filename':   filename,
+         'x':          x,
+         'y':          y,
+         'width':      width,
+         'height':     height,
+         'rotation':   rotation,
+         'visibility': visibility,
       })
 
-   def drawLabel(self, text, x, y, color=Color.BLACK, font=None):
+   def drawLabel(self, text, x, y, color=Color.BLACK, font=None, visibility=100):
       """Draw a line of text straight onto the display.
 
       This draws to the canvas and returns nothing, which is fast and best for text you
@@ -1679,23 +1772,25 @@ class Display(Interactable):
           y (int or float): The vertical position of the top-left corner, in pixels.
           color (Color, optional): The text color.
           font (Font, optional): The font, for example Font("Serif", Font.ITALIC, 16). If omitted, the default font is used.
+          visibility (int, optional): How visible the text is, from 0 (invisible) to 100 (fully visible).
       """
       fontData = None
       if isinstance(font, Font):
          fontData = [font.getName(), font.getStyle(), font.getSize()]
 
       _handler().sendCommand('draw', self._objectId, {
-         'shape': 'label',
-         'text':  str(text),
-         'x':     x,
-         'y':     y,
-         'color': color.getRGBA(),
-         'font':  fontData,
+         'shape':      'label',
+         'text':       str(text),
+         'x':          x,
+         'y':          y,
+         'color':      color.getRGBA(),
+         'font':       fontData,
+         'visibility': visibility,
       })
 
    # ── Compatibility Aliases ─────────────────────────────────────────────────────────
 
-   def drawText(self, text, x, y, color=Color.BLACK, font=None):
+   def drawText(self, text, x, y, color=Color.BLACK, font=None, visibility=100):
       """Draw a line of text straight onto the display.
 
       Same as drawLabel().
@@ -1706,8 +1801,9 @@ class Display(Interactable):
           y (int or float): The vertical position of the top-left corner, in pixels.
           color (Color, optional): The text color.
           font (Font, optional): The font, for example Font("Serif", Font.ITALIC, 16). If omitted, the default font is used.
+          visibility (int, optional): How visible the text is, from 0 (invisible) to 100 (fully visible).
       """
-      self.drawLabel(text, x, y, color, font)
+      self.drawLabel(text, x, y, color, font, visibility)
 
 
 #######################################################################################
@@ -3925,19 +4021,23 @@ class Group(Drawable):
    # ── Adding and removing items ───────────────────────────────────────────────────
 
    # doc-group: Grouping
-   def add(self, item):
-      """Add an object to the group.
+   def add(self, item, x=None, y=None):
+      """Add an object to the group at the given position.
 
-      The object keeps its current on-screen place as it joins. If it is already in another
-      group or on a display, it is removed from there first.
+      Aligns the object's top-left corner (for a Circle, its center) with (x, y), where
+      (0, 0) is the display's top-left corner. If x and y are left out, the object keeps
+      its current on-screen place as it joins. If the object is already in another group
+      or on a display, it is removed from there first.
 
       Args:
           item (Drawable): The object to add.
+          x (int or float, optional): The horizontal position, in pixels. Defaults to the object's current position.
+          y (int or float, optional): The vertical position, in pixels. Defaults to the object's current position.
       """
-      self.addOrder(item, 0)
+      self.addOrder(item, 0, x, y)
 
-   def addOrder(self, item, order=0):
-      """Add an object to the group on a given layer.
+   def addOrder(self, item, order=0, x=None, y=None):
+      """Add an object to the group on a given layer and position.
 
       Same as add(), but also sets the object's layer within the group. Layers run from
       smallest to largest, where 0 is closest to the front.
@@ -3945,6 +4045,8 @@ class Group(Drawable):
       Args:
           item (Drawable): The object to add.
           order (int, optional): The layer to place it on; 0 is closest to the front.
+          x (int or float, optional): The horizontal position, in pixels. Defaults to the object's current position.
+          y (int or float, optional): The vertical position, in pixels. Defaults to the object's current position.
       """
       if not isinstance(item, Drawable):
          raise TypeError(f'{type(self).__name__}.addOrder(): item should be a Drawable object (it was {type(item).__name__})')
@@ -3976,6 +4078,11 @@ class Group(Drawable):
       groupOnScreen     = groupParentMatrix @ groupLocalMatrix
       item._bakeReparent(itemOnScreen, groupOnScreen)
 
+      # if the caller gave an explicit position, it replaces the remembered one
+      if x is not None or y is not None:
+         currentX, currentY = item.getPosition()
+         item.setPosition(x if x is not None else currentX, y if y is not None else currentY)
+
       self._markDirty()
 
    def remove(self, item):
@@ -3995,6 +4102,17 @@ class Group(Drawable):
          item._bakeReparent(itemOnScreen, np.identity(3))
          _handler().sendCommand('removeChild', self._objectId, {'itemId': item._objectId})
          self._markDirty()
+
+   def removeAll(self):
+      """Remove every object from the group.
+
+      A quick way to empty the group.
+      """
+      for item in list(self._itemList):
+         item._parent = None
+      self._itemList.clear()
+      _handler().sendCommand('removeAll', self._objectId)
+      self._markDirty()
 
    def getOrder(self, item):
       """Return the layer an object sits on within the group.
