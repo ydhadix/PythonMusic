@@ -15,6 +15,7 @@ Unlike many other GUI libraries, this library has been designed to **“make sim
 | [Controls](control/index.md) | Interactive control widgets. |
 | [Text](text/index.md) | Labels and widgets for drawing text. |
 | [Icon](icon/index.md) | An image loaded from a file. |
+| [Common Functions](common/index.md) | Common functions shared by many GUI objects. |
 | [Group](group/index.md) | A collection of GUI objects that move, resize, and rotate together. |
 | [Color](color/index.md) | RGB color objects and functions for color manipulation. |
 | [Events](event/index.md) | Functions for responding to mouse and keyboard events. |
