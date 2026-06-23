@@ -3559,7 +3559,8 @@ class Icon(Graphics):
           row (int): The pixel's row (its vertical position in the image).
 
       Returns:
-          pixel (list[int]): The pixel's red, green, and blue values, for example [255, 0, 0].
+          pixel (list[int]): The pixel's red, green, blue, and alpha values, for example
+              [255, 0, 0, 255]. Alpha runs from 0 (fully transparent) to 255 (fully opaque).
       """
       if self._pixelCache is None:  # fetch local cache, if needed
          self._pixelCache = _handler().sendQuery('getPixels', self._objectId)
@@ -3574,7 +3575,9 @@ class Icon(Graphics):
       Args:
           column (int): The pixel's column (its horizontal position in the image).
           row (int): The pixel's row (its vertical position in the image).
-          color (list[int]): The new red, green, and blue values, for example [255, 0, 0].
+          color (list[int]): The new red, green, and blue values, for example [255, 0, 0]. You
+              may add a fourth alpha value, from 0 (fully transparent) to 255 (fully opaque); when
+              left off, the pixel is fully opaque.
       """
       self._pixelCache = None  # invalidate local cache
       _handler().sendCommand('setPixel', self._objectId, {'column': column, 'row': row, 'color': color})
@@ -3582,11 +3585,13 @@ class Icon(Graphics):
    def getPixels(self):
       """Return every pixel in the image.
 
-      The pixels are arranged as a list of rows, each row a list of pixels, each pixel a
-      list of red, green, and blue values. The image's top-left pixel is at [0][0].
+      The pixels are arranged as a list of rows, each row a list of pixels, each pixel a list
+      of red, green, blue, and alpha values. The image's top-left pixel is at [0][0]. Alpha runs
+      from 0 (fully transparent) to 255 (fully opaque).
 
       Returns:
-          pixelList (list[list[list[int]]]): The image's pixels, by row then column, each as [red, green, blue].
+          pixelList (list[list[list[int]]]): The image's pixels, by row then column, each as
+              [red, green, blue, alpha].
       """
       if self._pixelCache is None:  # fetch local cache, if needed
          self._pixelCache = _handler().sendQuery('getPixels', self._objectId)
@@ -3596,11 +3601,14 @@ class Icon(Graphics):
    def setPixels(self, pixels):
       """Replace every pixel in the image.
 
-      The pixels are arranged as a list of rows, each row a list of pixels, each pixel a
-      list of red, green, and blue values. The image's top-left pixel is at [0][0].
+      The pixels are arranged as a list of rows, each row a list of pixels, each pixel a list
+      of red, green, and blue values. The image's top-left pixel is at [0][0]. Each pixel may add
+      a fourth alpha value, from 0 (fully transparent) to 255 (fully opaque); when left off, the
+      pixel is fully opaque.
 
       Args:
-          pixels (list[list[list[int]]]): The new pixels, by row then column, each as [red, green, blue].
+          pixels (list[list[list[int]]]): The new pixels, by row then column, each as
+              [red, green, blue] or [red, green, blue, alpha].
       """
       self._pixelCache = None  # invalidate local cache
       _handler().sendCommand('setPixels', self._objectId, {'pixels': pixels})
