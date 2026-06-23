@@ -3598,7 +3598,7 @@ class Icon(Graphics):
       pixelList = list(self._pixelCache)
       return pixelList
 
-   def setPixels(self, pixels):
+   def setPixels(self, pixelList):
       """Replace every pixel in the image.
 
       The pixels are arranged as a list of rows, each row a list of pixels, each pixel a list
@@ -3611,7 +3611,7 @@ class Icon(Graphics):
               [red, green, blue] or [red, green, blue, alpha].
       """
       self._pixelCache = None  # invalidate local cache
-      _handler().sendCommand('setPixels', self._objectId, {'pixels': pixels})
+      _handler().sendCommand('setPixels', self._objectId, {'pixels': pixelList})
 
 
 class Label(Graphics):
